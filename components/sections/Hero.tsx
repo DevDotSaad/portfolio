@@ -47,7 +47,7 @@ export default function Hero() {
             <a href="#work" className="btn btn-primary" data-magnetic="">
               View work <ArrowRight />
             </a>
-            <a href={SITE.cv} className="btn" download data-magnetic="">
+            <a href={SITE.cv} className="btn" download={SITE.cvFileName} data-magnetic="">
               <DownloadIcon /> Download CV
             </a>
             <a href={`mailto:${SITE.email}`} className="btn btn-ghost" data-magnetic="">

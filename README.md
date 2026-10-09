@@ -48,11 +48,11 @@ Case-study pages (`/work/[slug]/`) are generated from `PROJECTS`. Architecture d
 
 | What | Where |
 | --- | --- |
-| Production domain | `NEXT_PUBLIC_SITE_URL` env var (fallback in `SITE.url`) |
-| AI Interpreter link ("Launching soon") | `PROJECTS[ai-interpreter].link` |
 | CRM & AI Automation Suite link | `PROJECTS[crm-automation-suite].link` |
 
-Filled from the CV: the CV PDF (`public/Muhammad-Saad-Zubair-CV.pdf`), LinkedIn, the Coach AI live link, the four More-projects links, and the Thelaywala experience bullets.
+Filled from the CV: the CV PDF (`public/Muhammad-Saad-Zubair-CV.pdf`), the portfolio domain (`devdotsaad.vercel.app`, the fallback in `SITE.url`; `NEXT_PUBLIC_SITE_URL` overrides it), LinkedIn, the Coach AI, Sales Coach and AI Interpreter links, the four More-projects links, and the experience bullets.
+
+**Replacing the CV:** overwrite `public/Muhammad-Saad-Zubair-CV.pdf` (keep the filename) and bump the `?v=` number in `SITE.cv` so visitors don't get the old file from cache.
 
 ## Screenshots
 
@@ -63,7 +63,7 @@ In `lib/data.ts`, each project picks a `cover` for the home mockup (must be at l
 | Product | Home mockup | Case-study grid |
 | --- | --- | --- |
 | Coach AI — PainterGrowth.com | coach-ai-dashboard | dashboard · live-coach · knowledge-base · meetings |
-| AI Real-Time Sales Copilot — Thelaywala | sales-copilot-dashboard-home | dashboard-home · overlay-live-call · dashboard-weekly · dashboard-reports |
+| Sales Coach — Thelaywala | sales-copilot-dashboard-home | dashboard-home · overlay-live-call · dashboard-weekly · dashboard-reports |
 | AI Interpreter | ai-interpreter-site-hero | site-hero · site-pipeline · site-they-speak · site-on-your-machine |
 | CRM & AI Automation Suite | crm-ghl-workflow-pipeline-sync | pipeline-sync · customer-emails · reply-branches · pvl-purchase |
 | Salon / Weather / TaskFlow / Blog | card thumbnails: salon-hero · weather-dashboard · taskflow-home · blog-home | — |

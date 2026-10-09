@@ -8,7 +8,7 @@ export const SCREENS = {
   "w": 1640,
   "h": 1230,
   "pos": "50% 0%",
-  "alt": "Sales Copilot web dashboard: customer, session, open-task and health summary with recent call activity",
+  "alt": "Sales Coach web dashboard: customer, session, open-task and health summary with recent call activity",
   "hiRes": true
  },
  "sales-copilot-dashboard-weekly": {
@@ -19,7 +19,7 @@ export const SCREENS = {
   "w": 1640,
   "h": 1010,
   "pos": "50% 0%",
-  "alt": "Sales Copilot weekly digest: what moved, health changes per customer and a call-prep builder",
+  "alt": "Sales Coach weekly digest: what moved, health changes per customer and a call-prep builder",
   "hiRes": true
  },
  "sales-copilot-dashboard-reports": {
@@ -30,7 +30,7 @@ export const SCREENS = {
   "w": 1640,
   "h": 1200,
   "pos": "50% 0%",
-  "alt": "Sales Copilot reports: generating a call record PDF for a customer",
+  "alt": "Sales Coach reports: generating a call record PDF for a customer",
   "hiRes": true
  },
  "sales-copilot-overlay-live-call": {
@@ -41,7 +41,7 @@ export const SCREENS = {
   "w": 528,
   "h": 1191,
   "pos": "50% 78%",
-  "alt": "Sales Copilot desktop overlay during a live call: transcript, heads-up, customer mood and the suggested next line",
+  "alt": "Sales Coach desktop overlay during a live call: transcript, heads-up, customer mood and the suggested next line",
   "hiRes": false
  },
  "ai-interpreter-site-hero": {

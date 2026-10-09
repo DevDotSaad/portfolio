@@ -1270,10 +1270,17 @@ html:not(.motion) .marquee-group {
 /* ─────────────────────────────────────────────────────────────────────
    Stack constellation (CSS 3D)
    ───────────────────────────────────────────────────────────────────── */
+/* five hubs: three over two, centred (6-column grid, each hub spans 2) */
 .constellation {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(12px, 2vw, 20px);
+}
+.constellation > .hub {
+  grid-column: span 2;
+}
+.constellation > .hub:nth-child(4) {
+  grid-column: 2 / span 2;
 }
 .hub {
   /* keep in sync with the literal 58deg in the ring/face keyframes below */
@@ -1443,7 +1450,7 @@ html:not(.motion) .marquee-group {
 }
 .stack-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
   margin-top: clamp(40px, 5vw, 56px);
   padding-top: 32px;
@@ -1464,10 +1471,23 @@ html:not(.motion) .marquee-group {
   .stack-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .constellation > .hub,
+  .constellation > .hub:nth-child(4) {
+    grid-column: auto;
+  }
+  .constellation > .hub:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, calc(50% - 10px));
+  }
 }
 @media (max-width: 620px) {
   .constellation {
     grid-template-columns: 1fr;
+  }
+  .constellation > .hub:last-child {
+    width: auto;
+    justify-self: stretch;
   }
   .stack-list {
     grid-template-columns: 1fr 1fr;

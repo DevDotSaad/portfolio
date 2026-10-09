@@ -57,7 +57,7 @@ const RENAME = {
   'rework-nav-top-1440.png': 'ai-interpreter-site-hero-2.png',
   'wf-workflow-1440.png': 'ai-interpreter-site-pipeline.png',
 };
-// The nine "ChatGPT Image"-named files are real Sales Copilot captures (the filename was
+// The nine "ChatGPT Image"-named files are real Sales Coach captures (the filename was
 // misleading). A previous pass mislabelled them generated-not-for-site-*; restore those names.
 for (const to of Object.values(RENAME)) {
   const wrong = 'generated-not-for-site-' + to;
@@ -77,11 +77,11 @@ fs.writeFileSync(logPath, JSON.stringify(log, null, 2));
 
 /* 2. Crops (source pixels) and where each image is used. `pos` anchors object-fit: cover. */
 const SHOTS = {
-  // AI Real-Time Sales Copilot — Thelaywala (sidebar account email / overlay email cropped out)
-  'sales-copilot-dashboard-home': { file: 'sales-copilot-dashboard-home.png', crop: [0, 0, 1640, 1230], pos: '50% 0%', alt: 'Sales Copilot web dashboard: customer, session, open-task and health summary with recent call activity' },
-  'sales-copilot-dashboard-weekly': { file: 'sales-copilot-dashboard-weekly.png', crop: [0, 0, 1640, 1010], pos: '50% 0%', alt: 'Sales Copilot weekly digest: what moved, health changes per customer and a call-prep builder' },
-  'sales-copilot-dashboard-reports': { file: 'sales-copilot-dashboard-reports.png', crop: [0, 0, 1640, 1200], pos: '50% 0%', alt: 'Sales Copilot reports: generating a call record PDF for a customer' },
-  'sales-copilot-overlay-live-call': { file: 'sales-copilot-overlay-live-call.png', crop: [192, 165, 528, 1191], pos: '50% 78%', alt: 'Sales Copilot desktop overlay during a live call: transcript, heads-up, customer mood and the suggested next line' },
+  // Sales Coach — Thelaywala (sidebar account email / overlay email cropped out)
+  'sales-copilot-dashboard-home': { file: 'sales-copilot-dashboard-home.png', crop: [0, 0, 1640, 1230], pos: '50% 0%', alt: 'Sales Coach web dashboard: customer, session, open-task and health summary with recent call activity' },
+  'sales-copilot-dashboard-weekly': { file: 'sales-copilot-dashboard-weekly.png', crop: [0, 0, 1640, 1010], pos: '50% 0%', alt: 'Sales Coach weekly digest: what moved, health changes per customer and a call-prep builder' },
+  'sales-copilot-dashboard-reports': { file: 'sales-copilot-dashboard-reports.png', crop: [0, 0, 1640, 1200], pos: '50% 0%', alt: 'Sales Coach reports: generating a call record PDF for a customer' },
+  'sales-copilot-overlay-live-call': { file: 'sales-copilot-overlay-live-call.png', crop: [192, 165, 528, 1191], pos: '50% 78%', alt: 'Sales Coach desktop overlay during a live call: transcript, heads-up, customer mood and the suggested next line' },
   // AI Interpreter — marketing site (scrollbar and the "Built by Thelaywala" line cropped out)
   'ai-interpreter-site-hero': { file: 'ai-interpreter-site-hero.png', crop: [0, 0, 1424, 788], pos: '0% 0%', alt: 'AI Interpreter site hero: two-way captions over a video call — “Speak your language. Be heard in la suya.”' },
   'ai-interpreter-site-pipeline': { file: 'ai-interpreter-site-pipeline.png', crop: [0, 0, 1424, 885], pos: '50% 20%', alt: 'AI Interpreter pipeline on device: call audio, listen, transcribe, translate, speak, cable to call' },

@@ -126,14 +126,14 @@ const shots = {
     await p.goto(BASE + '/', { waitUntil: 'networkidle0' });
     await sleep(1500);
     let k = 0;
-    for (const sel of ['#case-coach-ai', '#case-sales-copilot', '#case-ai-interpreter', '#case-crm-automation-suite']) {
+    for (const sel of ['#case-coach-ai', '#case-sales-coach', '#case-ai-interpreter', '#case-crm-automation-suite']) {
       await scrollTo(p, sel, 200);
       await sleep(1200);
       await p.screenshot({ path: OUT + '/13-featured-' + ++k + '.png' });
     }
   },
   async caseStudies() {
-    for (const slug of ['sales-copilot', 'coach-ai']) {
+    for (const slug of ['sales-coach', 'coach-ai']) {
       const p = await page(1440, 900);
       await p.goto(BASE + '/work/' + slug + '/', { waitUntil: 'networkidle0' });
       await sleep(2200);
@@ -149,11 +149,11 @@ const shots = {
       await p.screenshot({ path: OUT + '/14-' + slug + '-lightbox.png' });
     }
     const m = await page(390, 844, true);
-    await m.goto(BASE + '/work/sales-copilot/', { waitUntil: 'networkidle0' });
+    await m.goto(BASE + '/work/sales-coach/', { waitUntil: 'networkidle0' });
     await sleep(1500);
     await m.evaluate(() => document.querySelector('.shots').scrollIntoView());
     await sleep(2000);
-    await m.screenshot({ path: OUT + '/14-sales-copilot-screenshots-mobile.png' });
+    await m.screenshot({ path: OUT + '/14-sales-coach-screenshots-mobile.png' });
   },
   async interpreterAndProjects() {
     const p = await page(1440, 900);
@@ -176,9 +176,9 @@ const shots = {
     await scrollTo(p, '#case-ai-interpreter', 200);
     await sleep(1500);
     await p.screenshot({ path: OUT + '/18-ai-interpreter-card.png' });
-    await scrollTo(p, '#case-sales-copilot', 200);
+    await scrollTo(p, '#case-sales-coach', 200);
     await sleep(1500);
-    await p.screenshot({ path: OUT + '/18-sales-copilot-card.png' });
+    await p.screenshot({ path: OUT + '/18-sales-coach-card.png' });
     await p.goto(BASE + '/work/ai-interpreter/', { waitUntil: 'networkidle0' });
     await sleep(2200);
     await p.screenshot({ path: OUT + '/19-ai-interpreter-top.png' });
@@ -191,14 +191,14 @@ const shots = {
     await p.click('.shot-btn');
     await sleep(1200);
     await p.screenshot({ path: OUT + '/19-ai-interpreter-lightbox.png' });
-    await p.goto(BASE + '/work/sales-copilot/', { waitUntil: 'networkidle0' });
+    await p.goto(BASE + '/work/sales-coach/', { waitUntil: 'networkidle0' });
     await sleep(1500);
     await scrollTo(p, '.shots', 160);
     await sleep(2000);
-    await p.screenshot({ path: OUT + '/20-sales-copilot-screenshots.png' });
+    await p.screenshot({ path: OUT + '/20-sales-coach-screenshots.png' });
     await p.click('.shot-btn');
     await sleep(1200);
-    await p.screenshot({ path: OUT + '/20-sales-copilot-lightbox.png' });
+    await p.screenshot({ path: OUT + '/20-sales-coach-lightbox.png' });
     await p.goto(BASE + '/work/crm-automation-suite/', { waitUntil: 'networkidle0' });
     await sleep(1500);
     await scrollTo(p, '[aria-label="Clients"]', 100);
@@ -210,6 +210,16 @@ const shots = {
     await p.evaluate(() => window.__lenis?.scrollTo(window.scrollY + 300));
     await sleep(4500);
     await p.screenshot({ path: OUT + '/22-timeline.png' });
+  },
+  async stackTablet() {
+    const p = await page(900, 1100);
+    await p.goto(BASE + '/', { waitUntil: 'networkidle0' });
+    await sleep(1200);
+    await scrollTo(p, '#stack .constellation', 100);
+    await sleep(2500);
+    await p.evaluate(() => window.scrollBy(0, 700));
+    await sleep(3000);
+    await p.screenshot({ path: OUT + '/23-stack-tablet.png', fullPage: false });
   },
   async contact() {
     const p = await page(1440, 900);

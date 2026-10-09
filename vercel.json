@@ -1,6 +1,8 @@
 {
   "redirects": [
-    { "source": "/work/ai-sales-coach", "destination": "/work/sales-copilot/", "permanent": true },
-    { "source": "/work/ai-sales-coach/", "destination": "/work/sales-copilot/", "permanent": true }
+    { "source": "/work/ai-sales-coach", "destination": "/work/sales-coach/", "permanent": true },
+    { "source": "/work/ai-sales-coach/", "destination": "/work/sales-coach/", "permanent": true },
+    { "source": "/work/sales-copilot", "destination": "/work/sales-coach/", "permanent": true },
+    { "source": "/work/sales-copilot/", "destination": "/work/sales-coach/", "permanent": true }
   ]
 }

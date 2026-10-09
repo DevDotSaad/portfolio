@@ -88,7 +88,7 @@ export default function Stack() {
           eyebrow="Tech stack"
           id="stack-title"
           title="A constellation of tools."
-          lede="Four hubs, each orbited by the tools I use. Hover a logo to see where it shows up in my work."
+          lede="Five hubs, each orbited by the tools I use. Hover a logo to see where it shows up in my work."
         />
         <ul className="constellation">
           {STACK.map((hub, i) => (

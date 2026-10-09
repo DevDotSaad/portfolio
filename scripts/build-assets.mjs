@@ -35,6 +35,7 @@ const ICONS = {
   python: 'siPython', webrtc: 'siWebrtc', supabase: 'siSupabase', postgresql: 'siPostgresql',
   pandas: 'siPandas', numpy: 'siNumpy', gemini: 'siGooglegemini', claude: 'siClaude', zapier: 'siZapier',
   meta: 'siMeta', electron: 'siElectron', vercel: 'siVercel', vite: 'siVite',
+  github: 'siGithub', docker: 'siDocker',
 };
 const out = {};
 for (const [k, name] of Object.entries(ICONS)) {

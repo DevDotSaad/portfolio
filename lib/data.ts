@@ -14,9 +14,11 @@ export const SITE = {
   phone: '+92 336 2179891',
   phoneHref: 'tel:+923362179891',
   linkedin: 'https://www.linkedin.com/in/muhammad-saad-zubair-272684321', // from the CV
-  cv: '/Muhammad-Saad-Zubair-CV.pdf',
+  // ?v= busts browser/CDN caches when the PDF is replaced — bump it with each new CV.
+  cv: '/Muhammad-Saad-Zubair-CV.pdf?v=2',
+  cvFileName: 'Muhammad-Saad-Zubair-CV.pdf',
   heroChips: ['AI Automation · RAG · Real-time voice', 'Leads a small dev team'],
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://muhammadsaadzubair.vercel.app', // PLACEHOLDER: production domain
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://devdotsaad.vercel.app', // portfolio URL from the CV
 };
 
 export const NAV = [
@@ -46,7 +48,7 @@ export const CONCEPTS: Concept[] = [
     id: 'rag',
     name: 'RAG (retrieval-augmented generation)',
     def: 'Relevant passages are fetched from your own documents at question time and handed to the LLM, so answers are grounded in that material rather than in what the model memorised.',
-    usedIn: ['coach-ai', 'sales-copilot'],
+    usedIn: ['coach-ai', 'sales-coach'],
   },
   {
     id: 'embeddings',
@@ -64,7 +66,7 @@ export const CONCEPTS: Concept[] = [
     id: 'stt',
     name: 'Real-time STT (Whisper) & VAD',
     def: 'Speech-to-text turns audio into text as it is spoken; Whisper is an open speech-recognition model. Voice activity detection marks where speech starts and stops.',
-    usedIn: ['ai-interpreter', 'coach-ai', 'sales-copilot'],
+    usedIn: ['ai-interpreter', 'coach-ai', 'sales-coach'],
   },
   {
     id: 'tts',
@@ -76,7 +78,7 @@ export const CONCEPTS: Concept[] = [
     id: 'webrtc',
     name: 'WebRTC & real-time media capture',
     def: 'WebRTC is the web standard for low-latency audio and video. Media-capture APIs read the microphone, system audio or screen as a live stream an app can process.',
-    usedIn: ['coach-ai', 'sales-copilot', 'ai-interpreter'],
+    usedIn: ['coach-ai', 'sales-coach', 'ai-interpreter'],
   },
   {
     id: 'node',
@@ -88,7 +90,7 @@ export const CONCEPTS: Concept[] = [
     id: 'electron',
     name: 'Electron overlays & screen-share exclusion',
     def: 'Electron ships a web UI as a desktop app. A transparent, always-on-top window becomes an overlay, and content protection keeps it out of screen shares.',
-    usedIn: ['sales-copilot', 'ai-interpreter', 'coach-ai'],
+    usedIn: ['sales-coach', 'ai-interpreter', 'coach-ai'],
   },
   {
     id: 'webhooks',
@@ -118,7 +120,7 @@ export const CONCEPTS: Concept[] = [
 
 /* ───────────────────────────── Projects ───────────────────────────── */
 
-export type ProjectSlug = 'coach-ai' | 'sales-copilot' | 'ai-interpreter' | 'crm-automation-suite';
+export type ProjectSlug = 'coach-ai' | 'sales-coach' | 'ai-interpreter' | 'crm-automation-suite';
 
 export type FlowNode = { title: string; sub?: string };
 export type Diagram = {
@@ -192,9 +194,9 @@ export const PROJECTS: Project[] = [
     shots: ['coach-ai-dashboard', 'coach-ai-live-coach', 'coach-ai-knowledge-base', 'coach-ai-meetings'],
   },
   {
-    slug: 'sales-copilot',
-    name: 'AI Real-Time Sales Copilot',
-    fullName: 'AI Real-Time Sales Copilot — Thelaywala',
+    slug: 'sales-coach',
+    name: 'Sales Coach',
+    fullName: 'Sales Coach — Thelaywala',
     client: 'Thelaywala',
     kicker: 'Live sales-call coaching · Windows + macOS',
     tagline: 'A real-time coaching overlay that suggests the next line while the customer is still speaking.',
@@ -212,7 +214,7 @@ export const PROJECTS: Project[] = [
       'Overlay that stays invisible in screen-share.',
     ],
     diagram: {
-      label: 'AI Real-Time Sales Copilot architecture: dual-side audio, live transcription, retrieval over winning calls, LLM suggestions, hidden overlay',
+      label: 'Sales Coach architecture: dual-side audio, live transcription, retrieval over winning calls, LLM suggestions, hidden overlay',
       nodes: [
         { title: 'Call audio', sub: 'Rep + customer' },
         { title: 'Live STT', sub: 'Dual-side transcript' },
@@ -236,8 +238,8 @@ export const PROJECTS: Project[] = [
     kicker: 'Live two-way voice translation',
     tagline: 'Speak your language on Zoom, Meet or Teams — the other side hears theirs, through a virtual microphone.',
     status: 'Launching soon',
-    link: { href: '#', label: 'Launching soon', placeholder: true },
-    host: 'ai interpreter',
+    link: { href: 'https://ai-interpreter-sz.vercel.app', label: 'ai-interpreter-sz.vercel.app' },
+    host: 'ai-interpreter-sz.vercel.app',
     problem:
       'Calls on Zoom, Meet and Teams break down when the two sides don’t share a language. Translation has to happen live, in both directions, and reach the other side as a voice through the normal meeting audio.',
     built: [
@@ -367,10 +369,8 @@ export const STACK: Hub[] = [
     id: 'ai',
     name: 'AI & Automation',
     tools: [
-      { name: 'OpenAI API', mono: 'OAI', used: [w('coach-ai')] },
-      { name: 'Google Gemini', icon: 'gemini', used: [w('coach-ai')] },
-      { name: 'Claude API', icon: 'claude', used: [w('coach-ai')] },
-      { name: 'RAG', mono: 'RAG', used: [w('coach-ai'), w('sales-copilot')] },
+      { name: 'LLM integration (OpenAI, Gemini, Claude)', mono: 'LLM', used: [w('coach-ai'), w('sales-coach')] },
+      { name: 'RAG', mono: 'RAG', used: [w('coach-ai'), w('sales-coach')] },
       { name: 'Fine-tuned prompting', mono: 'PR', used: [w('coach-ai')] },
       { name: 'Whisper', mono: 'WSP', used: [w('ai-interpreter')] },
       { name: 'Piper', mono: 'TTS', used: [w('ai-interpreter')] },
@@ -391,8 +391,17 @@ export const STACK: Hub[] = [
       { name: 'API integration', mono: 'INT', used: [w('crm-automation-suite'), more('Weather App')] },
       { name: 'Reusable architecture', mono: 'ARC', used: [more('Blog App')] },
       { name: 'Debugging', mono: 'DBG', used: [] },
-      { name: 'Electron packaging', icon: 'electron', used: [w('coach-ai'), w('sales-copilot'), w('ai-interpreter')] },
-      { name: 'Vercel', icon: 'vercel', used: [] },
+      { name: 'Electron packaging', icon: 'electron', used: [w('coach-ai'), w('sales-coach'), w('ai-interpreter')] },
+    ],
+  },
+  {
+    id: 'cloud',
+    name: 'Cloud & DevOps',
+    tools: [
+      { name: 'Vercel', icon: 'vercel', used: [w('coach-ai'), w('ai-interpreter')] },
+      { name: 'Supabase Auth + RLS', icon: 'supabase', used: [w('ai-interpreter'), concept('rls', 'Row Level Security')] },
+      { name: 'GitHub → Vercel CI/CD', icon: 'github', used: [] },
+      { name: 'Docker containerization', icon: 'docker', used: [] },
     ],
   },
 ];
@@ -405,12 +414,12 @@ export const EXPERIENCE = [
     role: 'AI Engineer & Full Stack AI Developer',
     date: 'Jan 2026 – Present',
     current: true,
-    // First three: the CV's exact wording. Last: leadership line from the content brief.
+    // The CV's exact wording and order.
     bullets: [
+      'Lead developer on the team’s AI products; currently training and supervising two developer interns, reviewing their work and setting engineering standards.',
       'Build responsive lead-capture funnels and landing pages with real-time webhooks, CRM pipelines, Meta Pixel/CAPI tracking, and automated email/SMS workflows.',
       'Design and maintain automation across GoHighLevel and Close CRM, including lead routing, pipelines, sequences, Zapier integrations, and webhook-driven processes.',
       'Configure and train conversational bots and voice agents in GoHighLevel and Retell.ai, refining prompts, call flows, knowledge/context, qualification logic, and human handoffs.',
-      'Lead developer on the team’s AI products; currently training and supervising two new developer interns.',
     ],
   },
   // Bullets below: the CV's exact wording.
